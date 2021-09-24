@@ -1,26 +1,21 @@
 import React from 'react';
 import { AppContainer } from '../layouts/styles';
 import { Column } from "./Column";
-import { Card } from "./Card";
+import { useAppState } from '../state/AppStateContext';
 import { AddNewItemButton } from "./AddNewItemButton";
 
 export const App = () => {
+    const { lists } = useAppState();
+
     const addColumnHandler = (text: string) => {
         console.log(text);
     };
 
+    const columns = lists.map(list => <Column key={list.id} title={list.title} id={list.id}/>)
+
     return (
         <AppContainer>
-            <Column title="Column title # 1">
-                <Card text="First Card"/>
-            </Column>
-            <Column title="Column title # 2">
-                <Card text="First Card"/>
-            </Column>
-            <Column title="Column title # 3">
-                <Card text="First Card"/>
-                <Card text="Second Card"/>
-            </Column>
+            {columns}
             <AddNewItemButton onAdd={addColumnHandler} toggleButtonText="+ Add new List"/>
         </AppContainer>
     );
