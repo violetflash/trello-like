@@ -40,19 +40,19 @@ type AddNewItemButtonContainerPropsType = {
 }
 
 export const AddNewItemButtonContainer = styled.button<AddNewItemButtonContainerPropsType>`
-  background-color: ${props => props.dark ? "#dedede" : "#ffffff3d"};
+  background-color: ${props => props.dark ? "#6EC7E366" : "#ffffff3d"};
   border-radius: 3px;
   border: none;
   color: ${props => (props.dark ? "#000" : "#fff")};
   cursor: pointer;
   max-width: 300px;
   padding: 10px 12px;
-  text-align: left;
+  text-align: right;
   transition: background 85ms ease-in;
   width: 100%;
 
   &:hover {
-    background-color: ${props => props.dark ? "#ccc" : "#ffffff52"};
+    background-color: ${props => props.dark ? "#6EC7E399" : "#ffffff52"};
   }
 `;
 

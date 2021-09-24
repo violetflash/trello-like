@@ -11,10 +11,17 @@ export const App = () => {
 
     return (
         <AppContainer>
-            <Column title="Column title">
+            <Column title="Column title # 1">
                 <Card text="First Card"/>
             </Column>
-            <AddNewItemButton onAdd={addColumnHandler} toggleButtonText="+ Add new Column"/>
+            <Column title="Column title # 2">
+                <Card text="First Card"/>
+            </Column>
+            <Column title="Column title # 3">
+                <Card text="First Card"/>
+                <Card text="Second Card"/>
+            </Column>
+            <AddNewItemButton onAdd={addColumnHandler} toggleButtonText="+ Add new List"/>
         </AppContainer>
     );
 }

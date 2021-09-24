@@ -14,7 +14,7 @@ export const Column: FC<ColumnPropsType> = ( { title, children } ) => {
         <ColumnContainer>
             <ColumnTitle>{title}</ColumnTitle>
             {children}
-            <AddNewItemButton onAdd={addCardHandler} toggleButtonText="+ Add new Card" dark/>
+            <AddNewItemButton onAdd={addCardHandler} toggleButtonText="+ Add new Task" dark/>
         </ColumnContainer>
     )
 };
