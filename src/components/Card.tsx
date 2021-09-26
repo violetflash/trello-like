@@ -7,7 +7,6 @@ type CardPropsType = {
 }
 
 export const Card = ({ id, text }: CardPropsType) => {
-
     return (
         <CardContainer>
             {text}

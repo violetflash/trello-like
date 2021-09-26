@@ -11,7 +11,10 @@ export const App = () => {
         console.log(text);
     };
 
-    const columns = lists.map(list => <Column key={list.id} title={list.title} id={list.id}/>)
+    const columns = lists.map(list => {
+        const { id, title } = list;
+        return <Column key={id} title={title} id={id}/>;
+    })
 
     return (
         <AppContainer>

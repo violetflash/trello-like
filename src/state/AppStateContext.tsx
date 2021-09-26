@@ -5,24 +5,12 @@ type AppStateContextType = {
   getTasksByListId(id: string): TaskType[];
 }
 
-const AppStateContext = createContext<AppStateContextType>({} as AppStateContextType); //trick that makes typescript think that our empty object actually has this type
+const AppStateContext = createContext<AppStateContextType>({} as AppStateContextType); //trick that makes typescript
+// think that our EMPTY object actually has this type
 
-export type TaskType = {
-  id: string;
-  text: string;
-}
 
-export type ListType = {
-  id: string;
-  title: string;
-  tasks: TaskType[];
-}
 
-export type AppDataType = {
-  lists: ListType[]
-}
-
-export const appData: AppDataType = {
+export const appData: AppStateType = {
   lists: [
     {
       id: "0",

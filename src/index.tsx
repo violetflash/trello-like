@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import {App} from './components/App';
-import {AppStateProvider} from './state/AppStateContext';
+import {  App} from './components/App';
+import { AppStateProvider } from './state/AppStateContext';
 
 ReactDOM.render(
     <React.StrictMode>
@@ -12,4 +12,3 @@ ReactDOM.render(
     </React.StrictMode>,
     document.getElementById('root')
 );
-

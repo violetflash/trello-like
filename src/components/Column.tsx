@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { ColumnContainer, ColumnTitle } from '../layouts/styles';
 import { AddNewItemButton } from "./AddNewItemButton";
 import { useAppState } from "../state/AppStateContext";
-import {Card} from "./Card";
+import { Card } from "./Card";
 
 type ColumnPropsType = {
     title: string;
@@ -11,7 +11,11 @@ type ColumnPropsType = {
 
 export const Column: FC<ColumnPropsType> = ( { title, id } ) => {
     const { getTasksByListId } = useAppState();
-    const cards = getTasksByListId(id).map((task) => <Card key={task.id} id={task.id} text={task.text}/>)
+    const cards = getTasksByListId(id)
+        .map((task) => {
+            const { id, text } = task;
+           return <Card key={id} id={id} text={text}/>
+        });
 
     const addCardHandler = () => {};
 
