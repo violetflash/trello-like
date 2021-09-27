@@ -8,7 +8,12 @@ export interface ITask {
     payload: { text: string; listId: string }
 }
 
-export type ActionT = IList | ITask;
+export interface IMove {
+  type: "MOVE_LIST";
+  payload: { draggedId: string, hoverId: string }
+}
+
+export type ActionT = IList | ITask | IMove;
 
 
 //Action creators
@@ -25,4 +30,12 @@ export const addList = (
 ): ActionT => ({
     type: "ADD_LIST",
     payload: title
+})
+
+export const moveList = (
+  draggedId: string,
+  hoverId: string
+): ActionT => ({
+  type: "MOVE_LIST",
+  payload: { draggedId, hoverId }
 })
