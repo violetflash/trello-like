@@ -4,11 +4,13 @@ import { Column } from "./Column";
 import { useAppState } from '../state/AppStateContext';
 import { AddNewItemButton } from "./AddNewItemButton";
 
+import { addList } from "../state/actions";
+
 export const App = () => {
-    const { lists } = useAppState();
+    const { lists, dispatch } = useAppState();
 
     const addColumnHandler = (text: string) => {
-        console.log(text);
+        dispatch(addList(text));
     };
 
     const columns = lists.map(list => {

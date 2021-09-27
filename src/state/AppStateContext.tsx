@@ -1,8 +1,13 @@
-import { createContext, useContext, FC } from 'react';
+import { createContext, useContext, FC, Dispatch } from 'react';
+import { useImmerReducer } from 'use-immer';
+import { ListType, TaskType, AppStateType, appStateReducer } from './appStateReducer';
+import { ActionT } from './actions';
+
 
 type AppStateContextType = {
   lists: ListType[];
   getTasksByListId(id: string): TaskType[];
+  dispatch: Dispatch<ActionT>;
 }
 
 const AppStateContext = createContext<AppStateContextType>({} as AppStateContextType); //trick that makes typescript
@@ -31,13 +36,14 @@ export const appData: AppStateType = {
 }
 
 export const AppStateProvider: FC = ({ children }) => {
-  const { lists } = appData;
+  const [state, dispatch] = useImmerReducer(appStateReducer, appData);
+  const { lists } = state;
 
   const getTasksByListId = (id: string) => {
     return lists.find(list => list.id === id)?.tasks || [];
   };
 
-  const value = { lists, getTasksByListId };
+  const value = { lists, getTasksByListId, dispatch };
 
   return (
       <AppStateContext.Provider value={value}>

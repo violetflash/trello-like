@@ -4,20 +4,24 @@ import { AddNewItemButton } from "./AddNewItemButton";
 import { useAppState } from "../state/AppStateContext";
 import { Card } from "./Card";
 
+import { addTask } from '../state/actions';
+
 type ColumnPropsType = {
     title: string;
     id: string;
 }
 
 export const Column: FC<ColumnPropsType> = ( { title, id } ) => {
-    const { getTasksByListId } = useAppState();
+    const { getTasksByListId, dispatch } = useAppState();
     const cards = getTasksByListId(id)
         .map((task) => {
             const { id, text } = task;
            return <Card key={id} id={id} text={text}/>
         });
 
-    const addCardHandler = () => {};
+    const addCardHandler = () => {
+        dispatch(addTask(title, id));
+    };
 
     return (
         <ColumnContainer>

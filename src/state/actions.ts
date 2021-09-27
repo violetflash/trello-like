@@ -8,21 +8,21 @@ export interface ITask {
     payload: { text: string; listId: string }
 }
 
-export type Action = IList | ITask;
+export type ActionT = IList | ITask;
 
 
 //Action creators
-export const AddTask = (
-  text: string,
-  listId: string
-): Action => ({
-  type: "ADD_TASK",
-  payload: { text, listId }
+export const addTask = (
+    text: string,
+    listId: string
+): ActionT => ({
+    type: "ADD_TASK",
+    payload: { text, listId }
 });
 
-export const AddList = (
-  title: string
-): Action => ({
-  type: "ADD_LIST",
-  payload: title
+export const addList = (
+    title: string
+): ActionT => ({
+    type: "ADD_LIST",
+    payload: title
 })
