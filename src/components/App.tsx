@@ -9,8 +9,9 @@ import { addList } from "../state/actions";
 export const App = () => {
     const { lists, dispatch } = useAppState();
 
-    const addColumnHandler = (text: string) => {
-        dispatch(addList(text));
+    const addColumnHandler = (title: string) => {
+        if (!title) return;
+        dispatch(addList(title));
     };
 
     const columns = lists.map(list => {

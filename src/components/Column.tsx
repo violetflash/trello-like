@@ -13,14 +13,16 @@ type ColumnPropsType = {
 
 export const Column: FC<ColumnPropsType> = ( { title, id } ) => {
     const { getTasksByListId, dispatch } = useAppState();
+
     const cards = getTasksByListId(id)
         .map((task) => {
             const { id, text } = task;
            return <Card key={id} id={id} text={text}/>
         });
 
-    const addCardHandler = () => {
-        dispatch(addTask(title, id));
+    const addCardHandler = (text: string) => {
+        if (!text) return;
+        dispatch(addTask(text, id));
     };
 
     return (
