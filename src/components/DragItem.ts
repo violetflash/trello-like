@@ -1,4 +1,4 @@
-export type ColumnDragItem {
+export type ColumnDragItem = {
   id: string;
   text: string;
   type: "COLUMN"
